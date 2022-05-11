@@ -1,0 +1,51 @@
+#include <iostream>
+#include "Transportmittel.h"
+
+using namespace std;
+
+int main()
+{
+	Transportmittel Transportmittel_1 = Transportmittel( 1.8, 2.1 );
+
+	/*void Transportmittel::bewegen(string Richtung)
+	{
+
+	};*/
+
+	cout << "Hoehe des Transportmittels: " << Transportmittel_1.gethoehe() << endl;
+	cout << "Breite des Transportmittels: " << Transportmittel_1.getbreite() << endl;
+
+	//abgeleitete Klasse Landtransportmittel:
+	class Landtransportmittel : Transportmittel {
+	private:
+		int radzahl;
+
+	public:
+		//Methoden:
+		void fahren(double km);
+		void schieben(double km);
+
+		//Gettermethode:
+		int getradzahl();
+
+		//allgemeiner Konstruktor:
+		Landtransportmittel(int radzahl);
+
+	};
+
+	//abgeleitete Klasse Wassertransportmittel:
+	class Wassertransportmittel : Transportmittel {
+	private:
+		double bruttoregistertonnen;
+
+	public:
+		//Methoden:
+		void anlegen(string Anlegehafen);
+		void ablegen(string Ablegehafen);
+
+		//Gettermethode:
+		double getbruttoregistertonnen();
+	};
+
+
+}
