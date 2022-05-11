@@ -10,14 +10,21 @@ private:
 	double hoehe;
 	double breite;
 
+
+public:
 	//allgemeiner Konstruktor:
 	Transportmittel(double hoehe, double breite);
 
-public:
 	//Methode:
 	void bewegen(string richtung)
 	{
 		int x;
 
 	}
+
+	//Gettermethoden:
+	double gethoehe();
+	double getbreite();
+
 };
+
