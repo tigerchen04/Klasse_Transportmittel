@@ -20,7 +20,7 @@ public:
 	{
 		int x;
 
-		//x = "Wert des 
+		x = sizeof(richtung)
 	}
 
 	//Gettermethoden:
