@@ -5,7 +5,8 @@
 using namespace std;
 
 //Basisklasse:
-class Transportmittel {
+class Transportmittel 
+{
 private:
 	double hoehe;
 	double breite;
@@ -20,7 +21,7 @@ public:
 	{
 		int x;
 
-		x = sizeof(richtung)
+		x = sizeof(richtung);
 	}
 
 	//Gettermethoden:
@@ -29,26 +30,29 @@ public:
 };
 
 //abgeleitete Klasse Landtransportmittel:
-class Landtransportmittel : Transportmittel
+class Landtransportmittel : public Transportmittel
 {
-	private:
-		int radzahl;
+private:
+	int radzahl;
 
-	public:
-		//Methoden:
-		void fahren(double km);
-		void schieben(double km);
+public:
+	//Methoden:
+	void fahren(double km);
+	void schieben(double km);
 
-		//Gettermethode:
-		int getradzahl();
-	
-		//allgemeiner Konstruktor:
-		Landtransportmittel(double hoehe, double breite, int radzahl) : Transportmittel(hoehe, breite);
+	//Gettermethode:
+	int getradzahl();
+
+	//allgemeiner Konstruktor:
+	Landtransportmittel(double hoehe, double breite, int r) : Transportmittel(hoehe, breite)
+	{
+
+	}
 
 };
 
 //abgeleitete Klasse Wassertransportmittel:
-class Wassertransportmittel : Transportmittel
+class Wassertransportmittel : public Transportmittel
 {
 private:
 	double bruttoregistertonnen;
@@ -62,11 +66,14 @@ public:
 	double getbruttoregistertonnen();
 
 	//allgemeiner Kontstruktor:
-	Wassertransportmittel(double hoehe, double breite, double bruttoregistertonnen) : Transportmittel(hoehe, breite);
+	Wassertransportmittel(double hoehe, double breite, double bruttoregistertonnen) : Transportmittel(hoehe, breite)
+	{
+
+	}
 };
 
 //abgeleitete Klasse Fahrrad:
-class Fahrrad : Landtransportmittel
+class Fahrrad : public Landtransportmittel
 {
 private:
 	int anzahl_gaenge;
@@ -80,11 +87,14 @@ public:
 	int getanzahl_gaenge();
 
 	//allgemeiner Kontstruktor:
-	Fahrrad(double hoehe, double breite, int radzahl, int anzahl_gaenge) : Landtransportmittel(hoehe, breite, radzahl);
+	Fahrrad(double hoehe, double breite, int radzahl, int anzahl_gaenge) : Landtransportmittel(hoehe, breite, radzahl)
+	{
+
+	}
 };
 
 //abgleitete Klasse Rikscha
-class Rikscha : Landtransportmittel
+class Rikscha : public Landtransportmittel
 {
 private:
 	string farbe;
@@ -98,11 +108,14 @@ public:
 	string getfarbe();
 
 	//allgemeiner Konstruktor:
-	Rikscha(double hoehe, double breite, int radzahl, string farbe) : Landtransportmittel(hoehe, breite, radzahl);
+	Rikscha(double hoehe, double breite, int radzahl, string farbe) : Landtransportmittel(hoehe, breite, radzahl)
+	{
+
+	}
 };
 
 //abgeleitete Klasse Auto:
-class Auto : Landtransportmittel
+class Auto : public Landtransportmittel
 {
 private:
 	double spritverbrauch;
@@ -116,5 +129,8 @@ public:
 	double getspritverbrauch();
 
 	//allgemeiner Konstruktor:
-	Auto(double hoehe, double breite, int radzahl, double spritverbrauch) : Landtransportmittel(hoehe, breite, radzahl);
+	Auto(double hoehe, double breite, int radzahl, double spritverbrauch) : Landtransportmittel(hoehe, breite, radzahl)
+	{
+
+	}
 };
