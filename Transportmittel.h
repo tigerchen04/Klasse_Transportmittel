@@ -5,7 +5,7 @@
 using namespace std;
 
 //Basisklasse:
-class Transportmittel 
+class Transportmittel
 {
 private:
 	double hoehe;
@@ -24,8 +24,14 @@ public:
 	void bewegen(string richtung);
 
 	//Gettermethoden:
-	double gethoehe();
-	double getbreite();
+	double gethoehe()
+	{
+		return hoehe;
+	};
+	double getbreite()
+	{
+		return breite;
+	};
 };
 
 //abgeleitete Klasse Landtransportmittel:
@@ -40,7 +46,10 @@ public:
 	void schieben(double km);
 
 	//Gettermethode:
-	int getradzahl();
+	int getradzahl()
+	{
+		return radzahl;
+	}
 
 	//allgemeiner Konstruktor:
 	Landtransportmittel(double h, double b, int r) : Transportmittel(h, b)
@@ -61,7 +70,10 @@ public:
 	void ablegen(string Ablegehafen);
 
 	//Gettermethode:
-	double getbruttoregistertonnen();
+	double getbruttoregistertonnen()
+	{
+		return bruttoregistertonnen;
+	}
 
 	//allgemeiner Kontstruktor:
 	Wassertransportmittel(double h, double b, double brt) : Transportmittel(h, b)
@@ -82,7 +94,10 @@ public:
 	void schieben(double km);
 
 	//Gettermethode:
-	int getanzahl_gaenge();
+	int getanzahl_gaenge()
+	{
+		return anzahl_gaenge;
+	}
 
 	//allgemeiner Kontstruktor:
 	Fahrrad(double h, double b, int r, int anz_g) : Landtransportmittel(h, b, r)
@@ -103,7 +118,10 @@ public:
 	void schieben(double km);
 
 	//Gettermethode:
-	string getfarbe();
+	string getfarbe()
+	{
+		return farbe;
+	}
 
 	//allgemeiner Konstruktor:
 	Rikscha(double h, double b, int r, string f) : Landtransportmittel(h, b, r)
@@ -124,7 +142,10 @@ public:
 	void fahren(double km);
 
 	//Gettermethode:
-	double getspritverbrauch();
+	double getspritverbrauch()
+	{
+		return spritverbrauch;
+	}
 
 	//allgemeiner Konstruktor:
 	Auto(double h, double b, int r, double s_v) : Landtransportmittel(h, b, r)
