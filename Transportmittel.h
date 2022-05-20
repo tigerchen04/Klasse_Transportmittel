@@ -14,15 +14,14 @@ private:
 
 public:
 	//allgemeiner Konstruktor:
-	Transportmittel(double hoehe, double breite);
+	Transportmittel(double h, double b)
+	{
+		double hoehe = h;
+		double breite = b;
+	}
 
 	//Methode:
-	void bewegen(string richtung)
-	{
-		int x;
-
-		x = sizeof(richtung);
-	}
+	void bewegen(string richtung);
 
 	//Gettermethoden:
 	double gethoehe();
@@ -44,11 +43,10 @@ public:
 	int getradzahl();
 
 	//allgemeiner Konstruktor:
-	Landtransportmittel(double hoehe, double breite, int r) : Transportmittel(hoehe, breite)
+	Landtransportmittel(double h, double b, int r) : Transportmittel(h, b)
 	{
-
+		int radzahl = r;
 	}
-
 };
 
 //abgeleitete Klasse Wassertransportmittel:
@@ -66,9 +64,9 @@ public:
 	double getbruttoregistertonnen();
 
 	//allgemeiner Kontstruktor:
-	Wassertransportmittel(double hoehe, double breite, double bruttoregistertonnen) : Transportmittel(hoehe, breite)
+	Wassertransportmittel(double h, double b, double brt) : Transportmittel(h, b)
 	{
-
+		double bruttoregistertonnen = brt;
 	}
 };
 
@@ -87,9 +85,9 @@ public:
 	int getanzahl_gaenge();
 
 	//allgemeiner Kontstruktor:
-	Fahrrad(double hoehe, double breite, int radzahl, int anzahl_gaenge) : Landtransportmittel(hoehe, breite, radzahl)
+	Fahrrad(double h, double b, int r, int anz_g) : Landtransportmittel(h, b, r)
 	{
-
+		int anzahl_gaenge = anz_g;
 	}
 };
 
@@ -108,9 +106,9 @@ public:
 	string getfarbe();
 
 	//allgemeiner Konstruktor:
-	Rikscha(double hoehe, double breite, int radzahl, string farbe) : Landtransportmittel(hoehe, breite, radzahl)
+	Rikscha(double h, double b, int r, string f) : Landtransportmittel(h, b, r)
 	{
-
+		string farbe = f;
 	}
 };
 
@@ -129,8 +127,8 @@ public:
 	double getspritverbrauch();
 
 	//allgemeiner Konstruktor:
-	Auto(double hoehe, double breite, int radzahl, double spritverbrauch) : Landtransportmittel(hoehe, breite, radzahl)
+	Auto(double h, double b, int r, double s_v) : Landtransportmittel(h, b, r)
 	{
-
+		double spritverbrauch = s_v;
 	}
 };
