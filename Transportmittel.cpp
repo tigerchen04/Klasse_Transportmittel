@@ -1,27 +1,44 @@
 #include "Transportmittel.h"
 #include <cstring>
 
+Transportmittel::Transportmittel(double h, double b)
+{
+	hoehe = h;
+	breite = b;
+}
 
 void Transportmittel::bewegen(string richtung)
 {
 	string x = richtung;
-	cin >> x;
-	if (x == "Norden")
+
+	cout << "Das Transportmittel bewegt sich in Richtung " << x << "." << endl;
+
+	/*if (x == "Norden")
 	{
-		cout << "T_1 bewegt sich in Richtung " << x << endl;
+		cout << "Das Transportmittel bewegt sich in Richtung " << x << endl;
 	}
 	else if (x == "Osten")
 	{
-		cout << "T_1 bewegt sich in Richtung " << x << endl;
+		cout << "Das Transportmittel bewegt sich in Richtung " << x << endl;
 	}
 	else if (x == "Süden")
 	{
-		cout << "T_1 bewegt sich in Richtung " << x << endl;
+		cout << "Das Transportmittel bewegt sich in Richtung " << x << endl;
 	}
 	else if (x == "Westen")
 	{
-		cout << "T_1 bewegt sich in Rcihtung " << x << endl;
-	}
+		cout << "Das Transportmittel bewegt sich in Richtung " << x << endl;
+	}*/
+}
+
+double Transportmittel::gethoehe()
+{
+	return hoehe;
+}
+
+double Transportmittel::getbreite()
+{
+	return breite;
 }
 
 
@@ -55,26 +72,56 @@ void Landtransportmittel::schieben(double km)
 	}
 }
 
+int Landtransportmittel::getradzahl()
+{
+	return radzahl;
+}
+
+Landtransportmittel::Landtransportmittel(double h, double b, int r) : Transportmittel(h, b)
+{
+	radzahl = r;
+}
+
 
 void Wassertransportmittel::anlegen(string Anlegehafen)
 {
-	cin >> Anlegehafen;
+	cout << "Anlegen in " << Anlegehafen << endl;
 }
 
 void Wassertransportmittel::ablegen(string Ablegehafen)
 {
-	cin >> Ablegehafen;
+	cout << "Ablegen von " << Ablegehafen << endl;
+}
+
+double Wassertransportmittel::getbruttoregistertonnen()
+{
+	return bruttoregistertonnen;
+}
+
+Wassertransportmittel::Wassertransportmittel(double h, double b, double brt) : Transportmittel(h, b)
+{
+	bruttoregistertonnen = brt;
 }
 
 
 void Fahrrad::freihaendig_fahren(string name)
 {
-	cin >> name;
+	cout << name << " fährt freihändig." << endl;
 }
 
-void Fahrrad::schieben(double km)
+void Fahrrad::schieben(double m)
 {
-	cin >> km;
+	cout << "Das Fahrrad wurde " << m << "m weit geschoben." << endl;
+}
+
+int Fahrrad::getanzahl_gaenge()
+{
+	return anzahl_gaenge;
+}
+
+Fahrrad::Fahrrad(double h, double b, int r, int anz_g) : Landtransportmittel(h, b, r)
+{
+	anzahl_gaenge = anz_g;
 }
 
 
@@ -82,19 +129,24 @@ void Rikscha::ziehen(int anzahl_personen)
 {
 	if (anzahl_personen < 0)
 	{
-		system("cls");
-		cout << "Keine zulässige Eingabe\n";
-		cout << "anzahl_personen >= 0\n";
-		return;
+		throw invalid_argument("Keine zulässige Eingabe! \n Hinweis: Anzahl der Personen > 0\n");
 	}
-	else
-	{
-		return;
-	}
+
+	cout << "In der Rikscha wurden " << anzahl_personen << " Personen gezogen." << endl;
 }
-void Rikscha::schieben(double km)
+void Rikscha::schieben(double m)
 {
-	cin >> km;
+	cout << "Die Rikscha wurde " << m << "m weit geschoben." << endl;
+}
+
+string Rikscha::getfarbe()
+{
+	return farbe;
+}
+
+Rikscha::Rikscha(double h, double b, int r, string f) : Landtransportmittel(h, b, r)
+{
+	farbe = f;
 }
 
 
@@ -102,13 +154,21 @@ void Auto::tanken(int liter)
 {
 	if (liter <= 0)
 	{
-		system("cls");
-		cout << "Keine zulässige Eingabe\n";
-		cout << "liter > 0\n";
-		return;
+		throw invalid_argument("Keine zulässige Eingabe! \n Hinweis: Liter > O\n");
 	}
-	else
-	{
-		return;
-	}
+}
+
+void Auto::fahren(double km)
+{
+	cout << "Das Auto ist " << km << "km weit gefahren." << endl;
+}
+
+double Auto::getspritverbrauch()
+{
+	return spritverbrauch;
+}
+
+Auto::Auto(double h, double b, int r, double s_v) : Landtransportmittel (h, b, r)
+{
+	spritverbrauch = s_v;
 }
