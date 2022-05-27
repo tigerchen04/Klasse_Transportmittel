@@ -11,27 +11,16 @@ private:
 	double hoehe;
 	double breite;
 
-
 public:
 	//allgemeiner Konstruktor:
-	Transportmittel(double h, double b)
-	{
-		double hoehe = h;
-		double breite = b;
-	}
+	Transportmittel(double h, double b);
 
 	//Methode:
 	void bewegen(string richtung);
 
 	//Gettermethoden:
-	double gethoehe()
-	{
-		return hoehe;
-	};
-	double getbreite()
-	{
-		return breite;
-	};
+	double gethoehe();
+	double getbreite();
 };
 
 //abgeleitete Klasse Landtransportmittel:
@@ -46,16 +35,10 @@ public:
 	void schieben(double km);
 
 	//Gettermethode:
-	int getradzahl()
-	{
-		return radzahl;
-	}
+	int getradzahl();
 
 	//allgemeiner Konstruktor:
-	Landtransportmittel(double h, double b, int r) : Transportmittel(h, b)
-	{
-		int radzahl = r;
-	}
+	Landtransportmittel(double h, double b, int r);
 };
 
 //abgeleitete Klasse Wassertransportmittel:
@@ -70,16 +53,10 @@ public:
 	void ablegen(string Ablegehafen);
 
 	//Gettermethode:
-	double getbruttoregistertonnen()
-	{
-		return bruttoregistertonnen;
-	}
+	double getbruttoregistertonnen();
 
 	//allgemeiner Kontstruktor:
-	Wassertransportmittel(double h, double b, double brt) : Transportmittel(h, b)
-	{
-		double bruttoregistertonnen = brt;
-	}
+	Wassertransportmittel(double h, double b, double brt);
 };
 
 //abgeleitete Klasse Fahrrad:
@@ -91,19 +68,13 @@ private:
 public:
 	//Methoden:
 	void freihaendig_fahren(string name);
-	void schieben(double km);
+	void schieben(double m);
 
 	//Gettermethode:
-	int getanzahl_gaenge()
-	{
-		return anzahl_gaenge;
-	}
+	int getanzahl_gaenge();
 
 	//allgemeiner Kontstruktor:
-	Fahrrad(double h, double b, int r, int anz_g) : Landtransportmittel(h, b, r)
-	{
-		int anzahl_gaenge = anz_g;
-	}
+	Fahrrad(double h, double b, int r, int anz_g);
 };
 
 //abgleitete Klasse Rikscha
@@ -115,19 +86,13 @@ private:
 public:
 	//Methoden:
 	void ziehen(int anzahl_personen);
-	void schieben(double km);
+	void schieben(double m);
 
 	//Gettermethode:
-	string getfarbe()
-	{
-		return farbe;
-	}
+	string getfarbe();
 
 	//allgemeiner Konstruktor:
-	Rikscha(double h, double b, int r, string f) : Landtransportmittel(h, b, r)
-	{
-		string farbe = f;
-	}
+	Rikscha(double h, double b, int r, string f);
 };
 
 //abgeleitete Klasse Auto:
@@ -142,14 +107,8 @@ public:
 	void fahren(double km);
 
 	//Gettermethode:
-	double getspritverbrauch()
-	{
-		return spritverbrauch;
-	}
+	double getspritverbrauch();
 
 	//allgemeiner Konstruktor:
-	Auto(double h, double b, int r, double s_v) : Landtransportmittel(h, b, r)
-	{
-		double spritverbrauch = s_v;
-	}
+	Auto(double h, double b, int r, double s_v);
 };
